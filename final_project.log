@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.28)  22 NOV 2019 19:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.12.28)  14 DEC 2019 01:35
 entering extended mode
 **./final_project.tex
 (final_project.tex
@@ -245,8 +245,7 @@ Package: enumitem 2018/11/30 v3.6 Customized lists
 sty"
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
-)
-No file final_project.aux.
+) (final_project.aux)
 \openout1 = `final_project.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -262,6 +261,7 @@ LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 32.
+
 ("C:\Users\Chris\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -437,26 +437,72 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 39.
 ("C:\Users\Chris\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 44.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 44.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 44.
+
+
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 88.
+
+
+Overfull \hbox (14.67444pt too wide) detected at line 88
+[]
+ []
+
+[1
 
 {C:/Users/Chris/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(final_project.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
+ []
+
+[3] [4] (final_project.aux) ) 
 Here is how much of TeX's memory you used:
- 4101 strings out of 492970
- 60893 string characters out of 3126593
- 128412 words of memory out of 3000000
- 7884 multiletter control sequences out of 15000+200000
- 29482 words of font info for 39 fonts, out of 3000000 for 9000
+ 4135 strings out of 492970
+ 61335 string characters out of 3126593
+ 137412 words of memory out of 3000000
+ 7907 multiletter control sequences out of 15000+200000
+ 47992 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,32p,303b,202s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/fonts/en
-c/dvips/lm/lm-ec.enc}<C:/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmbx12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/lm/lmr12.pfb><C:/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/lm/lmr17.pfb>
-Output written on final_project.pdf (1 page, 72443 bytes).
+ 55i,16n,32p,303b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/
+fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/
+fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/Chris/AppData/Local/Programs/MiKTeX 
+2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Chris/AppData/Local/Programs/MiK
+TeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/Chris/AppData/Local/Programs
+/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Users/Chris/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Chris/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Users/Chris/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Chris/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Chris/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Chris/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/Chris/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Users/Chri
+s/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/Ch
+ris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/
+Chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Us
+ers/Chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><C:
+/Users/Chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
+
+Output written on final_project.pdf (4 pages, 169565 bytes).
 PDF statistics:
- 19 PDF objects out of 1000 (max. 8388607)
+ 70 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

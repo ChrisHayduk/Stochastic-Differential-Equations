@@ -41,4 +41,167 @@
 \begin{problem}{1}
 \end{problem}
 
+We know that the probability density of the sum of two independent random variables can be computed by the convolutions of $f_X$ and $f_Y$. Thus, the probability density of $X + Y$, denoted by $f_Z$, is
+\begin{align}
+f_Z(z) = (f_Y*f_X) = \int_{-\infty}^{\infty}  f_Y(z - x)f_X(x) dx
+\end{align}
+
+We know that the normal density function is given by,
+\begin{align*}
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+\end{align*}
+
+Plugging this density function into equation (1) and letting $\sigma_Z = \sqrt{\sigma_X^2 + \sigma_Y^2}$ yields,
+\begin{align*}
+f_Z(z) &= \int_{-\infty}^{\infty} \left[\frac{1}{\sigma_Y\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{(z-x)-\mu_Y}{\sigma_Y}\right)^2} \frac{1}{\sigma_X\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu_X}{\sigma_X}\right)^2}\right] dx\\
+&= \int_{-\infty}^{\infty} \left[\frac{1}{\sigma_Y\sigma_X(2\pi)} e^{-\frac{1}{2}\left[\left(\frac{z-x-\mu_Y}{\sigma_Y}\right)^2 + \left(\frac{x-\mu_X}{\sigma_X}\right)^2 \right]} \right] dx\\
+&= \int_{-\infty}^{\infty} \left[\frac{1}{\sigma_Y\sigma_X(2\pi)} e^{-\frac{\sigma_X^2(z-x-\mu_Y)^2 + \sigma_Y^2(x-\mu_X)^2}{2 \sigma_Y^2 \sigma_X^2}} \right] dx\\
+&= \int_{-\infty}^\infty \left[\frac{1}{(2\pi)\sigma_X\sigma_Y} e^{
+      -\frac
+         {
+            x^2(\sigma_X^2 + \sigma_Y^2) - 
+            2x(\sigma_X^2(z - \mu_Y) + \sigma_Y^2\mu_X) +
+            \sigma_X^2(z^2 + \mu_Y^2 - 2z\mu_Y) + \sigma_Y^2\mu_X^2
+         }
+         {2\sigma_Y^2\sigma_X^2}}\right] dx\\
+&= \int_{-\infty}^\infty
+   \left[ \frac{1}{\sqrt{2\pi}\sigma_Z}
+    e^{-\frac
+         {
+            \sigma_Z^2\left(\sigma_X^2(z - \mu_Y)^2 + \sigma_Y^2\mu_X^2\right) -
+            \left(\sigma_X^2(z - \mu_Y) + \sigma_Y^2\mu_X\right)^2
+         }
+         {2\sigma_Z^2\left(\sigma_X\sigma_Y\right)^2}}
+   \frac{1}{\sqrt{2\pi}\frac{\sigma_X\sigma_Y}{\sigma_Z}}
+    e^{-\frac
+         {
+            \left(x - \frac{\sigma_X^2(z - \mu_Y) + \sigma_Y^2\mu_X}{\sigma_Z^2}\right)^2
+         }
+         {2\left(\frac{\sigma_X\sigma_Y}{\sigma_Z}\right)^2}} \right]
+    dx \\
+&= \frac{1}{\sqrt{2\pi}\sigma_Z}
+   e^{- { (z-(\mu_X+\mu_Y))^2 \over 2\sigma_Z^2 }}
+   \int_{-\infty}^{\infty} \left[
+   \frac{1}{\sqrt{2\pi}\frac{\sigma_X\sigma_Y}{\sigma_Z}}
+   e^{- \frac{\left(x-\frac{\sigma_X^2(z-\mu_Y)+\sigma_Y^2\mu_X}{\sigma_Z^2}\right)^2}{2\left(\frac{\sigma_X\sigma_Y}{\sigma_Z}\right)^2}} \right]
+    dx
+\end{align*}
+
+The equation inside the integral symbol represents a valid normal density function for $x$, so we know it integrates to $1$. Thus, the probability density function for $X + Y$ is given by
+\begin{align*}
+f_Z(z) = \frac{1}{\sqrt{2\pi}\sigma_Z}
+   e^{- { (z-(\mu_X+\mu_Y))^2 \over 2\sigma_Z^2 }}
+\end{align*}
+
+This is precisely a normal density function with mean $\mu_X + \mu_Y$ and variance $\sigma_Z^2 = (\sqrt{\sigma_X^2 + \sigma_Y^2})^2 = \sigma_X^2 + \sigma_Y^2$.\\
+
+Hence, we have shown that, given $X \sim N(\mu_X, \sigma_X^2)$ and $Y \sim N(\mu_Y, \sigma_Y^2)$, $X + Y$ is distributed as $N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)$.
+
+\begin{problem}{2}
+\end{problem}
+
+Let $Z = Y + 1$. We'll begin by finding the probability density function for $Z$. Since $Y$ is a standard uniform random variable, we know that
+\begin{align*}
+f(y) = \begin{cases} 
+      1 & 0 \leq y \leq 1 \\
+      0 & \text{elsewhere} 
+   \end{cases}
+\end{align*}
+
+Thus, the distribution function approach yields,
+\begin{align*}
+F_Z(z) = P(Z \leq z) = P(Y + 1 \leq z) &= P(Y \leq z - 1)\\
+&= \int_{-\infty}^{z-1} f(y)dy \\
+&= \int_0^{z-1} 1 \, dy\\
+&= z-1
+\end{align*}
+
+So, since as $Y$ ranges from 0 to 1, $Z$ ranges from 1 to 2, we have
+\begin{align*}
+F_Z(z) = \begin{cases} 
+      0 & z < 1 \\
+      z-1 & 1 \leq z \leq 2\\
+      1 & \text{elsewhere} 
+   \end{cases}
+\end{align*}
+
+And the density function for $Z$ is
+\begin{align*}
+f_Z(z) = \frac{dF_Z(z)}{dz} = \begin{cases} 
+      1 & 1 \leq z \leq 2\\
+      0 & \text{elsewhere} 
+   \end{cases}
+\end{align*}
+
+Now we can simplify the original function to be $U = X/Z$, where we now know the probability density function for both random variables ($X \sim \text{Unif}(0,1)$ and $Z \sim \text{Unif}(1, 2)$).\\
+
+So the distribution function is given by,
+\begin{align*}
+F_U(u) = P(U \leq u) = P(X/Z \leq u) &= P(X \leq uZ)\\
+&= \int_{-\infty}^{uz} f(x)dx \\
+&= \int_0^{uz} 1 \, dx\\
+&= uz
+\end{align*}
+
+FINISH THIS LATER.
+
+\begin{problem}{3}
+\end{problem}
+
+Let $Y$ be a standard normal variable. Then the moment-generating function of $Y$ is given by,
+\begin{align*}
+m(t) &= E(e^{tY})\\
+&= \int_{-\infty}^{\infty} e^{ty}f(y) \, dy\\
+\end{align*}
+
+Since $Y$ is a standard normal variable, we know that $\mu = 0$ and $\sigma = 1$. Thus, we have 
+\begin{align*}
+f(y) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2}
+\end{align*}
+
+Plugging this into the above equation yields,
+\begin{align*}
+m(t) &= \int_{-\infty}^{\infty} e^{ty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2} \, dy\\
+&= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2} + ty} \, dy\\
+&= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}(y - t)^2} e^{\frac{1}{2} t^2} \, dy\\
+&= e^{\frac{1}{2} t^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}(y - t)^2} \, dy
+\end{align*}
+
+We can see that the integral is precisely the integral for a normal random variable with $\mu = y - t$ and $\sigma = 1$. Thus, it integrates to $1$, yielding,
+\begin{align*}
+m(t) = e^{\frac{1}{2} t^2}
+\end{align*}
+
+\begin{problem}{4}
+\end{problem}
+
+Suppose $g(x)$ is a monotone increasing function and $X$ is a random variable with the probability density function $f_X$.\\
+
+Let $U = g(X)$ where $X$ has the above density function. Since $g(x)$ is an increasing function of $x$, then $g^{-1}(u)$ is an increasing function of $u$. Thus,
+\begin{align*}
+P(U \leq u) &= P[g(X) \leq u]\\
+&= P\{g^{-1}[g(X)] \leq g^{-1}(u)\}\\
+&= P[X \leq g^{-1}(u)]
+\end{align*}
+
+The above sequence of equalities implies that,
+\begin{align*}
+F_U(u) = F_X[g^{-1}(u)]
+\end{align*}
+
+When we differentiate with respect to $u$, we get,
+\begin{align*}
+f_U(u) = \frac{dF_X[g^{-1}(u)]}{du} = f_X(g^{-1}(u))\frac{d[g^{-1}(u)]}{du}
+\end{align*}
+
+\begin{problem}{5}
+\end{problem}
+
+We know that the moment generating function of $X$ is $\phi(t)$. Thus, 
+\begin{align*}
+m(t) &= E(e^{tX})\\
+&= \int_{-\infty}^{\infty} e^{tx} f(x) \, dx\\
+&= \phi(t)
+\end{align*}
+
 \end{document}
