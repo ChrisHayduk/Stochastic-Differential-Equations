@@ -38,6 +38,8 @@
 
 \maketitle
 
+\textbf{NOTE: Still need to complete Problems 2, 7, 8}
+
 \begin{problem}{1}
 \end{problem}
 
@@ -197,11 +199,177 @@ f_U(u) = \frac{dF_X[g^{-1}(u)]}{du} = f_X(g^{-1}(u))\frac{d[g^{-1}(u)]}{du}
 \begin{problem}{5}
 \end{problem}
 
-We know that the moment generating function of $X$ is $\phi(t)$. Thus, 
+We know that the moment-generating function of $X$ is $\phi(t)$. Thus, 
 \begin{align*}
-m(t) &= E(e^{tX})\\
+\phi(t) &= E(e^{tX})\\
 &= \int_{-\infty}^{\infty} e^{tx} f(x) \, dx\\
-&= \phi(t)
+&= \int_{-\infty}^{\infty} \left(1 + tx + \frac{t^2x^2}{2!} + \frac{t^3x^3}{3!} + \cdots \right) f(x) \, dx\\
+&= \int_{-\infty}^{\infty} f(x) dx + t \int_{-\infty}^{\infty} xf(x)dx + \frac{t^2}{2!} \int_{-\infty}^{\infty} x^2f(x)dx + \cdots
 \end{align*}
+
+Now plugging in $aX + b$ to the above equation yields,
+\begin{align*}
+E(e^{t(aX+b)}) &= E(e^{taX + tb})\\
+&= E[e^{taX}(e^{tb})]
+\end{align*}
+
+Since expected value is a linear operator and $e^{tb}$ is a constant, we can pull it out of the expectation operator,
+\begin{align*}
+E[e^{taX}(e^{tb})] &= e^{tb} E(e^{taX})\\
+&= e^{tb} \int_{-\infty}^{\infty} e^{tax} f(ax) \, dx
+\end{align*}
+
+We can see from the above equation that this is equal to $e^{tb}\phi(ta)$.\\
+
+Thus, the moment-generating function for $aX + b$ with constants $a \neq 0$ and $b$ is $e^{tb}\phi(ta)$.
+
+\begin{problem}{6}
+\end{problem}
+
+We know by Theorem 2.11.1 that the distribution of the sum of two random variables $X$ and $Y$ is given by the convolution of their densities, $f_X$ and $f_Y$.\\
+
+Thus, with $Z = X + Y$, we have,
+\begin{align*}
+f_Z(z) = (f*g)(z) = \int_{-\infty}^{\infty} f_X(z-y)f_Y(y) dy
+\end{align*}
+
+The mean of this distribution is,
+\begin{align*}
+E(Z) = \int_{-\infty}^{\infty} zf_X(z-y)f_Y(y) dy
+\end{align*}
+
+where $z = x+y$. Thus, we have,
+\begin{align*}
+E(Z) &= \int_{-\infty}^{\infty} zf_Z(z) dz\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[(x+y)f_X((x+y)-y)f_Y(y)\right] dxdy\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[(x+y)f_X(x)f_Y(y)\right] dxdy\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[(xf_X(x) + yf_X(x))f_Y(y)\right] dxdy\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[xf_X(x)f_Y(y) + yf_X(x)f_Y(y)\right] dxdy\\
+&= \int_{-\infty}^{\infty} \left[\mu_Xf_Y(y) + yf_Y(y)\right]dy\\
+&= \mu_X + \mu_Y
+\end{align*}
+
+In the above equations, we are using the properties that, for any random variable $X$ with density function $f(x)$ and mean $\mu$, we have that $\int_{-\infty}^{\infty} f(x) = 1$ and  $\int_{-\infty}^{\infty} xf(x) = \mu$.\\
+
+Now for the variance, we know that for a given random variable $X$, $\text{Var}(X) = E[X^2] - E[X]^2$. Plugging in $Z$ to this formula yields,
+\begin{align*}
+\text{Var}(Z) = \sigma_Z^2 &= E[Z^2] - E[Z]^2\\
+&= \int_{-\infty}^{\infty} z^2f_Z(z) dz + (\mu_X + \mu_Y)^2\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[(x+y)^2f_X((x+y)-y)f_Y(y)\right] dxdy - (\mu_X + \mu_Y)^2\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[(x+y)^2f_X(x)f_Y(y)\right] dxdy - (\mu_X + \mu_Y)^2\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[(x^2 + 2xy + y^2)f_X(x)f_Y(y)\right] dxdy - (\mu_X + \mu_Y)^2\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left[x^2f_X(x)f_Y(y) + 2xyf_X(x)f_Y(y) + y^2f_X(x)f_Y(y)\right] dxdy - (\mu_X + \mu_Y)^2\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x^2f_X(x)f_Y(y) dxdy - \mu_X + \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} 2xyf_X(x)f_Y(y) dxdy\; + \\&\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y^2f_X(x)f_Y(y) dxdy - \mu_Y\\
+&= \left[\int_{-\infty}^{\infty} x^2f_X(x)dx - \mu_X\right] + 2\mu_X\mu_Y + \left[\int_{-\infty}^{\infty} y^2f_Y(y)dy - \mu_Y\right]\\
+&= \sigma_X^2 + 2\mu_X\mu_Y + \sigma_Y^2
+\end{align*}
+
+Thus, we have $\text{Var}(Z) = \sigma_X^2 + 2\mu_X\mu_Y + \sigma_Y^2$.
+
+\begin{problem}{7}
+\end{problem}
+
+\noindent The definition of the Central Limit Theorem is as follows:\\
+\\
+Let $Y_1, Y_2, ..., Y_n$ be independent and identically distributed random variables with $E(Y_i) = \mu$ and $V(Y_i) = \sigma^2 < \infty$. Define
+\begin{align*}
+U_n = \frac{\Sigma_{i=1}^n Y_i - n\mu}{\sigma\sqrt{n}} = \frac{\overline{Y} - \mu}{\sigma/\sqrt{n}}
+\end{align*}
+
+\noindent where $\overline{Y} = \frac{1}{n} \Sigma_{i=1}^n Y_i$.\\
+
+\noindent Then the distribution function of $U_n$ converges to the standard normal distribution function as $n \to \infty$. That is,
+\begin{align*}
+\lim_{n \to \infty} P(U_n \leq u) = \int_{-\infty}^{u} \frac{1}{\sqrt{2\pi}}e^{-t^2/2}dt
+\end{align*}
+
+\noindent for all $u$.\\
+
+\noindent Let $f_n(x)$ be the probability mass function for a binomial random variable with $n$ trials and success probability $p$.
+
+FINISH THIS LATER.
+
+\begin{problem}{8}
+\end{problem}
+
+Let $X$ and $Y$ be two independent, continuous random variables described by probability density functions $f_X$ and $f_Y$. Also let $Z = XY$. We'll begin by finding the cumulative distribution function for $Z$. This yields,
+\begin{align*}
+F_Z(z) &= P(Z \leq z)\\
+&= P(XY \leq z)\\
+&= P(XY \leq z, X \geq 0) + P(XY \leq z, X \leq 0)\\
+&= P(Y \leq z/X, X \geq 0) + P(Y \geq z/X, X \leq 0)\\
+&= \int_{0}^{\infty} f_X(x) \int_{-\infty}^{z/x} f_Y(y) dy dx + \int_{-\infty}^0 f_X(x) \int_{z/X}^{\infty} f_Y(y) dy dx
+\end{align*}
+
+Now in order to find the probability density function for $Z$, we need to differentiate with respect to $z$ on both sides of the above equation.
+\begin{align*}
+f_Z(z) &= \frac{d}{dz}F_z(z)\\
+&= \frac{d}{dz}\left[\int_{0}^{\infty} f_X(x) \int_{-\infty}^{z/x} f_Y(y) dy dx + \int_{-\infty}^0 f_X(x) \int_{z/X}^{\infty} f_Y(y) dy dx\right]\\
+&= \int_{0}^{\infty} f_X(x) \left[f_Y(z/x)\left(\frac{1}{x}\right) - f(-\infty)\right] dx + \int_{-\infty}^{0} f_X(x) \left[f_Y(\infty) - f_Y(z/x)\left(\frac{1}{x}\right)\right] dx
+\end{align*}
+
+We obtained the above equation using the fundamental theorem of calculus and the chain rule. Now, we will use the fact that if $f(x)$ is a distribution function, as $x \to \infty$, $f(x) \to 0$. The same holds true as $x \to -\infty$. This yields,
+\begin{align*}
+f_Z(z) &= \int_{0}^{\infty} f_X(x) \left[f_Y(z/x)\left(\frac{1}{x}\right) - f(-\infty)\right] dx + \int_{-\infty}^{0} f_X(x) \left[f_Y(\infty) - f_Y(z/x)\left(\frac{1}{x}\right)\right] dx\\
+&= \int_{0}^{\infty} f_X(x)f_Y(z/x)\frac{1}{x} dx + \int_{-\infty}^{0} f_X(x)(-f_Y(z/x))\frac{1}{x} dx\\
+&= \int_{0}^{\infty} f_X(x)f_Y(z/x)\frac{1}{x} dx - \int_{-\infty}^{0} f_X(x)f_Y(z/x)\frac{1}{x} dx\\
+&= \int_{0}^{\infty} f_X(x)f_Y(z/x)\frac{1}{|x|} dx + \int_{-\infty}^{0} f_X(x)f_Y(z/x)\frac{1}{|x|} dx\\
+&= \int_{-\infty}^{\infty} f_X(x)f_Y(z/x)\frac{1}{|x|} dx
+\end{align*}
+
+Now we need to find the mean of $Z$ where $Z = XY$,
+\begin{align*}
+E[Z] &= \int_{-\infty}^{\infty} zf_Z(z)dz\\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (xy)f_X(x)f_Y(y)\frac{1}{|x|} dxdy\\
+&= \mu_Y \int_{-\infty}^{\infty} \frac{x}{|x|}f_X(x)dx\\
+&= \mu_Y \left[\int_{-\infty}^0 - f_X(x) dx + \int_{0}^{\infty} f_X(x) dx\right]\\
+&= \mu_Y \left[-\int_{-\infty}^0 f_X(x) dx + \int_{0}^{\infty} f_X(x) dx\right]
+\end{align*}
+
+FINISH THIS LATER.
+
+\begin{problem}{9}
+\end{problem}
+
+We have that,
+\begin{align*}
+t_j - t_{j-1} &= (j/N)(b-a) + a - [(j-1/N)(b-a) + a]\\
+&= (jb - ja)/N + a - (jb - ja - b + a)/N - a\\
+&= (jb - ja - jb + ja + b - a)/N\\
+&= (b - a)/N
+\end{align*}
+
+In addition, since the function $f$ is bounded on $[a,b]$, we know that $\exists M \in \mathbb{N}$ such that $M \geq |f|$. These two facts yield the following,
+\begin{align*}
+\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p &= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})((b - a)/N)^p\\
+&\leq \lim_{N \to \infty} \Sigma^N_{j=1} M((b - a)/N)^p\\
+&= \lim_{N \to \infty} MN((b - a)/N)^p\\
+&= M \lim_{N \to \infty} N((b - a)/N)^p\\
+&= M(b-a)^p \lim_{N \to \infty} N/N^p\\
+&= M(b-a)^p \lim_{N \to \infty} N^{1-p}
+\end{align*}
+
+Since $1-p < 0$, we have that $\lim_{N \to \infty} N^{1-p} = 0$. Thus, this gives us,
+\begin{align*}
+\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p &\leq M(b-a)^p \lim_{N \to \infty} N^{1-p}\\
+&= [M(b-a)]0 = 0
+\end{align*}
+
+Now, if we use $-M$ for the lower bound, we get,
+\begin{align*}
+\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p &\geq -M(b-a)^p \lim_{N \to \infty} N^{1-p}\\
+&= [-M(b-a)]0 = 0
+\end{align*}
+
+Since we have shown that
+\begin{align*}
+0 \leq \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p \leq 0
+\end{align*}
+
+we have that $\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p = 0$.
+
+\begin{problem}{10}
+\end{problem}
+
 
 \end{document}
