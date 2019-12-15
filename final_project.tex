@@ -371,5 +371,90 @@ we have that $\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p = 0
 \begin{problem}{10}
 \end{problem}
 
+We know, by Proposition 4.9.1, that for a given stochastic process $X_t$, if $E[X_t] \to k$ a constant and $\text{Var}(X_t) \to 0$ as $t \to \infty$, then $\operatorname{ms-\lim}_{t \to \infty} X_t = k$.\\
+
+Thus, we will need to check the mean and variance of the given function. We will begin with the mean. Using the fact that the function $f$ is a constant in terms of the expected value function, we get
+\begin{align*}
+E(\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2) = \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) E[(\Delta_{j-1}^j W)^2]
+\end{align*}
+
+We know that the expected value of the square of a random variable is its variance, which is $t_j - t_{j-1}$ in this case. Hence,
+\begin{align*}
+E(\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2) &= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) E[(\Delta_{j-1}^j W)^2]\\
+&= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})
+\end{align*}
+
+This is the equation for the Riemann integral of $f$ over $[a,b]$. Since we already know $f$ is bounded and defined on a closed interval, as long as $f$ is continuous almost everywhere on $[a,b]$ we assert that the above limit exists and is equal to the integral of $f$. If that is the case, then we have
+\begin{align*}
+E(\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2) &= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})\\
+&= \int_a^b f(t) dt
+\end{align*}
+
+Now we need to show that the variance of the function is 0. Using Problem 8 to show that $\text{Var}[(\Delta_{j-1}^j W)^2] = 2(t_j - t_{j-1})^2$, we have
+\begin{align*}
+\text{Var}(\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2) &= \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 \text{Var}[(\Delta_{j-1}^j W)^2]\\
+&= \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 \cdot 2(t_j - t_{j-1})^2\\
+&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^2
+\end{align*}
+
+Now observe that if $M$ is an upper bound for $|f|$ on $[a,b]$ (as in Problem 9), then $M^2$ is an upper bound for $|f|^2$ on $[a,b]$. This is true because increasing functions preserve inequalities, squaring is an increasing function for $x \geq 0$, and $|f| \geq 0$ for every $x$. In addition, observe that $|f|^2 = f^2$. Thus, we have that $M^2$ is an upper bound for $f^2$ on $[a,b]$.\\
+
+We can now the above and the result from Problem 9 in order to obtain the following,
+\begin{align*}
+\text{Var}(\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2) &= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^2\\
+&\leq 2M^2 \lim_{N \to \infty} \Sigma^N_{j=1} (t_j - t_{j-1})^2\\
+&= 2M^2(0) = 0
+\end{align*}
+
+In addition, since we know that variance is always $\geq 0$, we have that,
+\begin{align*}
+\text{Var}(\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2) = 0
+\end{align*}
+
+Thus, we have shown that this function satisfies Proposition 4.9.1 and can state that $\operatorname{ms-\lim}_{t \to \infty} [\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1}) (\Delta_{j-1}^j W)^2] = \int_a^b f(t) dt$.
+
+\begin{problem}{11}
+\end{problem}
+
+We need to show that the mean and variance of this function are $0$. We'll begin with the mean,
+\begin{align*}
+E[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p E[(\Delta_{j-1}^j W)^q]
+\end{align*}
+
+If $q$ is odd, then $E[(\Delta_{j-1}^j W)^q] = 0$. If $q$ is even, then $E[(\Delta_{j-1}^j W)^q] = \sigma^q(q-1)!! = (\sqrt{t_j - t_{j-1}})^p(p-1)!!$ where $!!$ is the double factorial. Since the expected value of the whole function is trivially $0$ if $q$ is odd, we will only consider the situation where $q$ is even,
+\begin{align*}
+\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p E[(\Delta_{j-1}^j W)^q] &= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p (\sqrt{t_j - t_{j-1}})^q(q-1)!!\\
+&= \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p (t_j - t_{j-1})^{q/2}(q-1)!!\\
+&= (q-1)!! \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^{p + q/2}
+\end{align*}
+
+By the constraints in the problem, we know that $p + q/2 > 1$. Hence, we can apply the result of Problem 9. Hence, the limit is equal to 0,
+\begin{align*}
+E[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= (q-1)!! \lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^{p + q/2}\\
+&= (q-1)!! (0)\\
+&= 0
+\end{align*}
+
+Now we must show that the variance is equal to $0$,
+\begin{align*}
+\text{Var}[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot \text{Var}[(\Delta_{j-1}^j W)^q]\\
+&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot E[(\Delta_{j-1}^j W)^{2q}]\\
+&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot E[(\Delta_{j-1}^j W)^{2q}]\\
+&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot (t_j - t_{j-1})^{q}(2q-1)\\
+&= 2(2q-1) \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p+q} 
+\end{align*}
+
+By the same reasoning as in Problem 10, this limit is equal to 0. Thus,
+\begin{align*}
+\text{Var}[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= 2(2q-1) \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p+q}\\
+&= 0
+\end{align*}
+
+Since the mean is equal to a constant (0 in this case) and the variance is equal to 0, we can say that the mean-squared limit of this function is 0.
+
+\begin{problem}{12}
+\end{problem}
+
+
 
 \end{document}
