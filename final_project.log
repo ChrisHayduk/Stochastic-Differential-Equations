@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  14 DEC 2019 21:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  15 DEC 2019 00:37
 entering extended mode
 **./final_project.tex
 (final_project.tex
@@ -519,7 +519,7 @@ Overfull \hbox (7.50124pt too wide) detected at line 429
  []
 
 
-Overfull \hbox (40.4003pt too wide) detected at line 445
+Overfull \hbox (32.52534pt too wide) detected at line 445
 []
  []
 
@@ -528,7 +528,17 @@ Overfull \hbox (66.90105pt too wide) detected at line 465
 []
  []
 
-[11] [12] (final_project.aux) ) 
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
+
+ []
+
+[12] [13] (final_project.aux) ) 
 Here is how much of TeX's memory you used:
  4137 strings out of 492895
  61381 string characters out of 3123735
@@ -557,9 +567,9 @@ Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><
 C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pf
 b><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on final_project.pdf (12 pages, 210438 bytes).
+Output written on final_project.pdf (13 pages, 214443 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

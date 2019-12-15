@@ -38,7 +38,7 @@
 
 \maketitle
 
-\textbf{NOTE: Still need to complete Problems 2, 7, 8}
+\textbf{NOTE: Still need to complete Problems 2, 7, 8, 15}
 
 \begin{problem}{1}
 \end{problem}
@@ -437,16 +437,16 @@ E[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j 
 
 Now we must show that the variance is equal to $0$,
 \begin{align*}
-\text{Var}[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot \text{Var}[(\Delta_{j-1}^j W)^q]\\
-&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot E[(\Delta_{j-1}^j W)^{2q}]\\
-&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot E[(\Delta_{j-1}^j W)^{2q}]\\
-&= 2\lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot (t_j - t_{j-1})^{q}(2q-1)\\
-&= 2(2q-1) \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p+q} 
+\text{Var}[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot \text{Var}[(\Delta_{j-1}^j W)^q]\\
+&= \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot E[(\Delta_{j-1}^j W)^{2q}]\\
+&= \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot E[(\Delta_{j-1}^j W)^{2q}]\\
+&= \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p} \cdot (t_j - t_{j-1})^{q}(2q-1)\\
+&= (2q-1) \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p+q} 
 \end{align*}
 
 By the same reasoning as in Problem 10, this limit is equal to 0. Thus,
 \begin{align*}
-\text{Var}[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= 2(2q-1) \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p+q}\\
+\text{Var}[\lim_{N \to \infty} \Sigma^N_{j=1} f(t_{j-1})(t_j - t_{j-1})^p(\Delta_{j-1}^j W)^q] &= (2q-1) \lim_{N \to \infty} \Sigma^N_{j=1} (f(t_{j-1}))^2 (t_j - t_{j-1})^{2p+q}\\
 &= 0
 \end{align*}
 
@@ -510,9 +510,71 @@ We are given the Ito integral,
 \int_0^T f(t)dW_t
 \end{align*}
 
-where $f(t)$ is an arbitrary bounded and continuous function. The partial sums for this integral are given by,
+where $f(t)$ is an arbitrary bounded and continuous function. Each increment is given by,
 \begin{align*}
-S_n = \Sigma_{i = 0}^{n-1} f(t_i)(W_{t_{i+1}} - W_{t_i})
+f(t_i)(W_{t_{i+1}} - W_{t_i})
 \end{align*}
+
+So the partial sums are given by
+\begin{align*}
+S_n = \Sigma_{i=0}^{n-1} f(t_i)(W_{t_{i+1}} - W_{t_i})
+\end{align*}
+
+We need to find the mean-squared limit of these partial sums. We'll start by finding the expected value,
+\begin{align*}
+E[\Sigma_{i=0}^{n-1} f(t_i)(W_{t_{i+1}} - W_{t_i})] &= \Sigma_{i=0}^{n-1} f(t_i)E[(W_{t_{i+1}} - W_{t_i})]\\
+&= \Sigma_{i=0}^{n-1} f(t_i)(0) = 0
+\end{align*}
+
+Thus, the mean is $0$. Now to find the variance,
+\begin{align*}
+\text{Var}[\Sigma_{i=0}^{n-1} f(t_i)(W_{t_{i+1}} - W_{t_i})] &= \Sigma_{i=0}^{n-1} f(t_i)^2\text{Var}[(W_{t_{i+1}} - W_{t_i})]\\
+&= \Sigma_{i=0}^{n-1} f(t_i)^2(t_{i+1} - t_i)
+\end{align*}
+
+Now when we take the limit as $n \to \infty$ of the variance, we get,
+\begin{align*}
+\lim_{n \to \infty} \Sigma_{i=0}^{n-1} f(t_i)^2(t_{i+1} - t_i) = \int_0^T f(t)^2
+\end{align*}
+
+Thus, if $Y_t = \int_0^T f(t) dW_t$, then $Y_t \sim N(0, \int_0^T f(t)^2)$.
+
+\begin{problem}{15}
+\end{problem}
+
+Let $Z_t = \int_0^t W_s ds$. We will use integration by parts to solve this integral.\\
+
+Let $u = W_s$ and $dv = ds$. This implies that $du = dW_s$ and $v = t-s$. Then using the formula,
+\begin{align*}
+\int udv = uv - \int v du
+\end{align*}
+
+we get,
+\begin{align*}
+\int_0^t W_s ds = W_s(t-s) - \int (t-s) dW_s
+\end{align*}
+FINISH THIS LATER.
+
+\begin{problem}{16}
+\end{problem}
+
+We have $X_t = \int_0^t (a+\frac{bu}{t}) dW_u$. Since the non-infinitesimal part of the integral does not depend on a random variable, this is a Wiener integral.\\
+
+By Proposition 5.6.1 , we know that Wiener integrals are normal random variables with mean 0 and variance,
+\begin{align*}
+\int_0^t (a+\frac{bu}{t})^2du &= \int_0^t (a^2 + a\frac{bu}{t} + \frac{b^2u^2}{t^2}) du\\
+&= a^2t + a\frac{bt^2}{2t} + \frac{b^2t^3}{3t^2}\\
+&= a^2t + a\frac{bt}{2} + \frac{b^2t}{3}\\
+&= (a^2 + \frac{ab}{2} + \frac{b^2}{3})t
+\end{align*}
+
+So, in order for the variance to equal 1, we require,
+\begin{align*}
+&(a^2 + \frac{ab}{2} + \frac{b^2}{3})t = 1\\
+\implies &a^2 + \frac{ab}{2} + \frac{b^2}{3} = \frac{1}{t}
+\end{align*}
+
+\begin{problem}{17}
+\end{problem}
 
 \end{document}
