@@ -455,6 +455,64 @@ Since the mean is equal to a constant (0 in this case) and the variance is equal
 \begin{problem}{12}
 \end{problem}
 
+We have that,
+\begin{align*}
+\Sigma_{k=m}^n f_k(g_{k+1} - g_k) &= f_m(g_{m+1} - g_m) + f_{m+1}(g_{m+2} - g_{m+1}) + f_{m+2}(g_{m+3} - g_{m+2}) + \cdots\\
+&= f_m(g_m+1) - f_m(g_m) + f_{m+1}(g_{m+2}) - f_{m+1}(g_{m+1}) + \cdots\\
+&= - f_m(g_m) + g_{m+1}(f_m - f_{m+1}) + g_{m+2}(f_{m+1} - f_{m+2}) + \cdots + f_n(g_{n+1})\\
+&= f_n(g_{n+1}) - f_m(g_m) - \left[g_{m+1}(f_m - f_{m+1}) + g_{m+2}(f_{m+1} - f_{m+2}) + \cdots + g_{n}(f_{n-1} - f_{n})\right]\\
+&= f_n(g_{n+1}) - f_m(g_m) - \Sigma_{k = m+1}^{n} g_k (f_{k-1} - f_k)
+\end{align*}
 
+\begin{problem}{13}
+\end{problem}
+
+We have $F_t = W_t$ with the interval of interest being $[0 , T]$. The partial sums of the integral $\int_0^T W_tdW_t$ are given by
+\begin{align*}
+S_n &= \Sigma_{i=0}^{n-1} F_{t_i}(W_{t_{i+1}} - W_{t_i})\\
+&= \Sigma_{i=0}^{n-1} W_{t_i} (W_{t_{i+1}} - W_{t_i})
+\end{align*}
+
+We also have that
+\begin{align*}
+W_{t_i}(W_{t_{i+1}} - W_{t_i}) = \frac{1}{2}W^2_{t_{i+1}} - \frac{1}{2}W^2_{t_i} - \frac{1}{2}(W_{t_{i+1}} - W_{t_i})^2
+\end{align*}
+
+Plugging this into the partial sums formula yields,
+\begin{align*}
+S_n &= \frac{1}{2} \Sigma_{i=0}^{n-1} W^2_{t_{i+1}} - \frac{1}{2} \Sigma_{i=0}^{n-1} W^2_{t_i} - \frac{1}{2} \Sigma_{i=0}^{n-1} (W_{t_{i+1}} - W_{t_i})^2\\
+&= \frac{1}{2}W^2_{t_n} - \frac{1}{2} \Sigma_{i=0}^{n-1} (W_{t_{i+1}} - W_{t_i})^2
+\end{align*}
+
+If we let $t_n = T$, we get
+\begin{align*}
+S_n = \frac{1}{2}W^2_T - \frac{1}{2} \Sigma_{i=0}^{n-1}(W_{t_{i+1}} - W_{t_i})^2
+\end{align*}
+
+Using Proposition 4.11.6 and the fact that $\frac{1}{2}W^2_T$ does not depend on $n$, we have
+\begin{align*}
+\operatorname{ms-\lim}_{n \to \infty} S_n &= \frac{1}{2}W^2_T - \operatorname{ms-\lim}_{n \to \infty} \frac{1}{2} \Sigma_{i=0}^{n-1}(W_{t_{i+1}} - W_{t_i})^2\\
+&= \frac{1}{2}W^2_T - \frac{1}{2}T
+\end{align*}
+
+Since the Ito integral is defined as the mean-squared limit of the partial sums $S_n$, we have that
+\begin{align*}
+\int_0^T W_tdW_t &= \operatorname{ms-\lim}_{n \to \infty} S_n\\
+&= \frac{1}{2}W^2_T - \frac{1}{2}T
+\end{align*}
+as required.
+
+\begin{problem}{14}
+\end{problem}
+
+We are given the Ito integral,
+\begin{align*}
+\int_0^T f(t)dW_t
+\end{align*}
+
+where $f(t)$ is an arbitrary bounded and continuous function. The partial sums for this integral are given by,
+\begin{align*}
+S_n = \Sigma_{i = 0}^{n-1} f(t_i)(W_{t_{i+1}} - W_{t_i})
+\end{align*}
 
 \end{document}
