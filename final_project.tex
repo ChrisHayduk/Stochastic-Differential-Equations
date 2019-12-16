@@ -40,8 +40,6 @@
 
 \maketitle
 
-\textbf{NOTE: Still need to complete Problems 2, 7, 8, 15, 17, 18, 22, 23c, 29, 30, 31bc}
-
 \begin{problem}{1}
 \end{problem}
 
@@ -147,7 +145,10 @@ F_U(u) = P(U \leq u) = P(X/Z \leq u) &= P(X \leq uZ)\\
 &= uz
 \end{align*}
 
-FINISH THIS LATER.
+And the density function for $U$ is
+\begin{align*}
+f_U(u) = \frac{dF_U(u)}{du} = z = y+1
+\end{align*}
 
 \begin{problem}{3}
 \end{problem}
@@ -175,7 +176,7 @@ We can see that the integral is precisely the integral for a normal random varia
 \begin{align*}
 m(t) = e^{\frac{1}{2} t^2}
 \end{align*}
-
+\newpage
 \begin{problem}{4}
 \end{problem}
 
@@ -287,10 +288,17 @@ U_n = \frac{\Sigma_{i=1}^n Y_i - n\mu}{\sigma\sqrt{n}} = \frac{\overline{Y} - \m
 
 \noindent for all $u$.\\
 
-\noindent Let $f_n(x)$ be the probability mass function for a binomial random variable with $n$ trials and success probability $p$.
+\noindent Let $f_n(x)$ be the probability mass function for a binomial random variable with $n$ trials and success probability $p$ and failure probability $q = 1-p$ We know that the mean for $n$ trials is given by $np$ and variance by $npg$..\\
 
-FINISH THIS LATER.
+Now let $X_i$ be distributed by this probability function and define $S_n = X_1 + X_2 + \cdots + X_n$. Thus, $S_n$ is the number of successes in  $n$ trials.\\
 
+Now define the standardized sum of $S_n$ to be,
+\begin{align*}
+S_n^* = \frac{S_n - np}{\sqrt{npq}}
+\end{align*}
+
+Thus, we can see that our $S_n^*$ are in the same form as the $U_n$ defined above. Hence, as we let $n \to \infty$, these standardized sums of binomial random variables will converge to the standard normal distribution.
+\newpage
 \begin{problem}{8}
 \end{problem}
 
@@ -325,10 +333,16 @@ E[Z] &= \int_{-\infty}^{\infty} zf_Z(z)dz\\
 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (xy)f_X(x)f_Y(y)\frac{1}{|x|} dxdy\\
 &= \mu_Y \int_{-\infty}^{\infty} \frac{x}{|x|}f_X(x)dx\\
 &= \mu_Y \left[\int_{-\infty}^0 - f_X(x) dx + \int_{0}^{\infty} f_X(x) dx\right]\\
-&= \mu_Y \left[-\int_{-\infty}^0 f_X(x) dx + \int_{0}^{\infty} f_X(x) dx\right]
+&= \mu_Y \left[-\int_{-\infty}^0 f_X(x) dx + \int_{0}^{\infty} f_X(x) dx\right]\\
+&= \mu_X \mu_Y
 \end{align*}
 
-FINISH THIS LATER.
+For the variance of $Z$, we have,
+\begin{align*}
+\text{Var}(Z) &= E[Z^2] - E[Z]^2\\
+&= E[X^2Y^2] - [\mu_X \mu_Y]^2\\
+&= (\sigma_X^2 + \mu_X^2)(\sigma_Y^2 + \mu_Y^2) - \mu_X^2 \mu_Y^2
+\end{align*}
 
 \begin{problem}{9}
 \end{problem}
@@ -544,10 +558,15 @@ Thus, if $Y_t = \int_0^T f(t) dW_t$, then $Y_t \sim N(0, \int_0^T f(t)^2)$.
 \begin{problem}{15}
 \end{problem}
 
-Let $Z_t = \int_0^t W_s ds$.\\
+We have,
+\begin{align*}
+\int_{0}^t W_s \,ds & = \int_0^t \int_0^t \mathbf{1}_{[0,s]} (u) \,dW_u \,ds \\
+& = \int_0^t \int_0^t \mathbf{1}_{[0,s]} (u) \,ds  \,dW_u\\
+& = \int_0^t (t-u) \,dW_u\\
+\end{align*}
 
-FINISH THIS LATER.
-
+where $\mathbf{1}_{[0,s]} (u)$ is the indicator function. That is, $\mathbf{1}_{[0,s]} (u) = 1$ if $u \in [0,s]$ and $0$ otherwise.
+\newpage
 \begin{problem}{16}
 \end{problem}
 
@@ -570,12 +589,54 @@ So, in order for the variance to equal 1, we require,
 \begin{problem}{17}
 \end{problem}
 
-FINISH THIS LATER.
+We have that,
+\begin{align*}
+dX_t = rX_tdt + \sigma X_tdW_t
+\end{align*}
+
+Dividing by $X_t$ and integrating yields,
+\begin{align}
+\int \frac{dX_t}{X_t} = \int rdt + \int \sigma dW_t
+\end{align}
+
+which gives us,
+\begin{align*}
+\log X_t = rt + \sigma W_t + c
+\end{align*}
+
+where c is an integration constant. Exponentiation on both sides yields,
+\begin{align*}
+X_t = e^{rt + \sigma W_t + c}
+\end{align*}
+
+Now we assume the constant $c$ is replaced by a function $c(t)$. We then apply Ito's formula, which gives
+\begin{align*}
+dX_t = X_t(r + c'(t) + \frac{\sigma^2}{2})dt + \sigma X_t dW_t
+\end{align*}
+
+When we subtract the initial equation, we get
+\begin{align*}
+(c'(t) + \frac{\sigma^2}{2})dt = 0
+\end{align*}
+
+which implies that $c'(t) = -\frac{\sigma^2}{2}$ Thus, $c(t) = -\frac{\sigma^2}{2}t + k$ where $k$ is a constant.\\
+
+Substituting back in gives us,
+\begin{align*}
+X_t &= e^{rt + \sigma W_t - \frac{\sigma^2}{2}t + k}\\
+&= e^{(r - \frac{\sigma^2}{2})t + \sigma W_t + k}\\
+&= X_0 e^{(r - \frac{\sigma^2}{2})t + \sigma W_t}
+\end{align*}
+
+Now we have,
+\begin{align*}
+\log X_t &= \log X_0 + \log\left(e^{(r - \frac{\sigma^2}{2})t + \sigma W_t}\right)\\
+&= \log X_0 + (r - \frac{\sigma^2}{2})t + \sigma W_t
+\end{align*}
 
 \begin{problem}{18}
 \end{problem}
 
-FINISH THIS LATER.
 
 \begin{problem}{19}
 \end{problem}
@@ -695,8 +756,6 @@ dW_t^{(1)} \cdot dW_t^{(2)} = 0
 
 \begin{problem}{22}
 \end{problem}
-
-FINISH THIS LATER.
 
 \begin{problem}{23}
 \end{problem}
@@ -1236,6 +1295,35 @@ X_t = te^{W_t} + 2
 \begin{problem}{29}
 \end{problem}
 
+We have $dX_t = (m - X_t)dt + \alpha dW_t$ where $X_0$ is constant.\\
+
+If we add $X_tdt$ to both sides and multiply by the integrating factor $e^t$, we get,
+\begin{align*}
+d(e^tX+t) = me^tdt + \alpha e^t dW_t
+\end{align*}
+
+Integrating both sides yields,
+\begin{align*}
+e^tX_t &= \int_0^t \left[me^sds + \alpha e^s dW_s\right]\\
+&= \int_0^t me^sds + \int_0^t \alpha e^s dW_s\\
+&= m \int_0^t e^sds + \alpha \int_0^t e^s dW_s\\
+&= m(e^t - e^0) + \alpha \int_0^t e^s dW_s\\
+&= m(e^t - 1) + \alpha \int_0^t e^s dW_s
+\end{align*}
+
+Dividing by $e^t$ on both sides give us,
+\begin{align*}
+X_t &= X_0e^{-t} + m - e^{-t} + \alpha e^{-t} \int_0^t e^s dW_s\\
+&= m + (X_0 - m)e^{-t} + \alpha \int_0^t e^{s-t} dWs
+\end{align*}
+
+We know that $\alpha \int_0^t e^{s-t} dWs$ is a Wiener integral. Thus, by Proposition 5.6.1, $X_t$ is Gaussian with,
+\begin{align*}
+E[X_t] &= m + (X_0 - m)e^{-t} + E\left[\alpha \int_0^t e^{s-t} dWs \right] = m + (X_0 - m)e^{-t}\\
+\text{Var}(X_t) &= \text{Var}\left[\alpha \int_0^t e^{s-t} dW_s\right] = \alpha^2e^{-2t} \int_0^t e^{2s} ds\\
+&= \alpha^2 e^{-2t}\frac{e^{2t} - 1}{2} = \frac{1}{2} \alpha^2(1 - e^{-2t})
+\end{align*}
+
 \begin{problem}{30}
 \end{problem}
 
@@ -1320,7 +1408,7 @@ dX_td\rho_t &= [X_tdt + \alpha X_t dW_t][\rho_t(\alpha^2 dt - \alpha dW_t)]\\
 
 Multiplying by $\rho_t$, the initial equation becomes,
 \begin{align*}
-\rho_tdX_t - \alpha\rho_tX_tdW_t = X_t dt
+\rho_tdX_t - \alpha\rho_tX_tdW_t = \rho_t X_t dt
 \end{align*}
 
 and adding and subtracting $\alpha^2\rho_tX_tdt$ from the left side yields,
@@ -1335,10 +1423,60 @@ d(\rho_tX_t) = \rho_t X_t dt
 
 So, with $Y_t = \rho_tX_t$, we have
 \begin{align*}
-d(Y_t) = Y_t dt
+&d(Y_t) = Y_t dt\\
+\implies &Y_t = Y_0e^t\\
+\implies &\rho_tX_t = X_0e^t\\
+\implies &X_t = X_0e^{(1 - \frac{\alpha^2}{2})t + \alpha W_t}
 \end{align*}
 
-\item
+\item We have $dX_t = \frac{1}{X_t} dt + \alpha X_t dW_t$ with $\alpha$ a constant and $X_0 > 0$. The integrating factor is given by,
+\begin{align*}
+\rho_t &= e^{-\int_0^t g(s) dW_s + \frac{1}{2}\int_0^t g^2(s) ds}\\
+&= e^{-\int_0^t \alpha dW_s + \frac{1}{2}\int_0^t \alpha^2 ds}\\
+&= e^{\frac{1}{2} \alpha^2t - \alpha W_t}
+\end{align*}
+
+By Ito's formula, we have that,
+\begin{align*}
+d\rho_t = \rho_t(\alpha^2 dt - \alpha dW_t)
+\end{align*}
+
+Using $dt^2 = dt dW_t = 0$ and $(dW_t)^2 = dt$, we obtain,
+\begin{align*}
+dX_td\rho_t &= [\frac{1}{X_t}dt + \alpha X_t dW_t][\rho_t(\alpha^2 dt - \alpha dW_t)]\\
+&= [\frac{1}{X_t}dt + \alpha X_t dW_t][\rho_t \alpha^2 dt - \rho_t \alpha dW_t]\\
+&=  \rho_t \frac{1}{X_t} \alpha^2 (dt)^2 - \rho_t \frac{1}{X_t} \alpha dt dW_t + \rho_t X_t \alpha^3 dt dW_t - \rho_t X_t \alpha^2 (dW_t)^2\\
+&= - \alpha^2 \rho_t X_t dt
+\end{align*}
+
+Multiplying by $\rho_t$, the initial equation becomes,
+\begin{align*}
+\rho_tdX_t - \alpha\rho_tX_tdW_t = \rho_t \frac{1}{X_t} dt
+\end{align*}
+
+and adding and subtracting $\alpha^2\rho_tX_tdt$ from the left side yields,
+\begin{align*}
+\rho_tdX_t - \alpha\rho_tX_tdW_t + \alpha^2\rho_tX_tdt - \alpha^2\rho_tX_tdt = \rho_t \frac{1}{X_t} dt
+\end{align*}
+
+which, by virtue of the product rule, becomes
+\begin{align*}
+d(\rho_tX_t) = \rho_t \frac{1}{X_t} dt
+\end{align*}
+
+Integrating yields,
+\begin{align*}
+\rho_tX_t &= \rho_0X_0 + \int_0^t \rho_s \frac{1}{X_s} ds\\
+&= (e^{\frac{1}{2} \alpha^2(0) - \alpha W_0})X_0 + \int_0^t \rho_s \frac{1}{X_s} ds\\
+&= (e^0)X_0 + \int_0^t \rho_s \frac{1}{X_s} ds\\
+&= X_0 + \int_0^t \rho_s \frac{1}{X_s} ds
+\end{align*}
+
+And hence the solution is,
+\begin{align*}
+X_t &= \frac{1}{\rho_t} \left[X_0 + \int_0^t \rho_s \frac{1}{X_s} ds\right]\\
+&= \frac{1}{ e^{\frac{1}{2} \alpha^2t - \alpha W_t}} \left[X_0 + \int_0^t  e^{\frac{1}{2} \alpha^2s - \alpha W_s} \frac{1}{X_s} ds\right]
+\end{align*}
 
 \end{enumerate}
 
