@@ -40,7 +40,7 @@
 
 \maketitle
 
-\textbf{NOTE: Still need to complete Problems 2, 7, 8, 15, 17, 18, 22, 23c}
+\textbf{NOTE: Still need to complete Problems 2, 7, 8, 15, 17, 18, 22, 23c, 29, 30, 31bc}
 
 \begin{problem}{1}
 \end{problem}
@@ -993,7 +993,7 @@ Thus, $c = -1$. The solution is then,
 X_t = e^{W_t-\frac{t}{2}} + \frac{t^3}{3} - 1
 \end{align*}
 
-\item We have $a(t,x) = t$ and $b(t,x) = e^{t/2}(\cos x)$
+\item We have $a(t,x) = t$ and $b(t,x) = e^{t/2}(\cos x)$\\
 
 So the associated system is,
 \begin{align*}
@@ -1035,13 +1035,201 @@ X_t = e^{t/2}(\sin W_t) + \frac{t^2}{2} + 1
 
 \begin{enumerate}[\alph*)]
 
-\item
+\item We have $a(t,x) = x + \frac{3}{2} x^2$ and $b(t,x) = t + x^3$\\
 
-\item
+We will first verify the closeness condition:
+\begin{align*}
+\partial_x a = 1 + 3x
+\end{align*}
 
-\item
+and,
+\begin{align*}
+\partial_t b + \frac{1}{2} \partial_x^2 b &= 1 + \frac{1}{2}(6x)\\
+&= 1 + 3x
+\end{align*}
 
-\item
+Thus, we have $\partial_x a = \partial_t b + \frac{1}{2} \partial_x^2 b$ and the closeness condition is satisfied.\\
+
+So the associated system is,
+\begin{align*}
+x + \frac{3}{2} x^2 &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+t + x^3 &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int t + x^3 dx = tx + \frac{x^4}{4} + T(t)
+\end{align*}
+
+Thus, $\partial_t f = x + T'(t)$. Using the first equation, we have
+\begin{align*}
+&x + \frac{3}{2} x^2 = x + T'(t) + \frac{1}{2}3x^2\\
+\implies &T'(t) = 0
+\end{align*}
+
+This implies that $T'(t) = 0$. As a result, $T(t) = c$. Hence,
+\begin{align*}
+f(t,x) = tx + \frac{x^4}{4} + c
+\end{align*}
+
+Since $X_0 = 0$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) &= 0(W_0) + \frac{W_0^4}{4} + c\\
+&= 0 + 0 + c\\
+&= c = 0
+\end{align*}
+
+Thus, $c = 0$. The solution is then,
+\begin{align*}
+X_t = t(W_t) + \frac{W_t^4}{4}
+\end{align*}
+
+\item We have $a(t,x) = 2tx$ and $b(t,x) = t^2 + x$\\
+
+We will first verify the closeness condition:
+\begin{align*}
+\partial_x a = 2t
+\end{align*}
+
+and,
+\begin{align*}
+\partial_t b + \frac{1}{2} \partial_x^2 b &= 2t + \frac{1}{2}0\\
+&= 2t
+\end{align*}
+
+Thus, we have $\partial_x a = \partial_t b + \frac{1}{2} \partial_x^2 b$ and the closeness condition is satisfied.\\
+
+So the associated system is,
+\begin{align*}
+2tx &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+t^2 + x &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int (t^2 + x) dx = t^2x + \frac{x^2}{2} + T(t)
+\end{align*}
+
+Thus, $\partial_t f = 2tx + T'(t)$. Using the first equation, we have
+\begin{align*}
+&2tx = 2tx + T'(t) + \frac{1}{2}1\\
+\implies &T'(t) = -\frac{1}{2}
+\end{align*}
+
+This implies that $T'(t) = -\frac{1}{2}$. As a result, $T(t) = -\frac{1}{2}t + c$. Hence,
+\begin{align*}
+f(t,x) = t^2x + \frac{x^2}{2} - \frac{1}{2}t + c
+\end{align*}
+
+Since $X_0 = 0$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) &= 0^2(W_0) + \frac{W_0^2}{2} - \frac{1}{2}0 + c\\
+&= 0 + 0 + 0 + c\\
+&= c = 0
+\end{align*}
+
+Thus, $c = 0$. The solution is then,
+\begin{align*}
+X_t = t^2(W_t) + \frac{W_t^2}{2} - \frac{1}{2}t
+\end{align*}
+
+\item We have $a(t,x) = e^tx + \frac{1}{2}\cos x$ and $b(t,x) = e^t + \sin x$\\
+
+We will first verify the closeness condition:
+\begin{align*}
+\partial_x a = e^t - \frac{1}{2}\sin x
+\end{align*}
+
+and,
+\begin{align*}
+\partial_t b + \frac{1}{2} \partial_x^2 b &= e^t - \frac{1}{2}\sin x
+\end{align*}
+
+Thus, we have $\partial_x a = \partial_t b + \frac{1}{2} \partial_x^2 b$ and the closeness condition is satisfied.\\
+
+So the associated system is,
+\begin{align*}
+e^tx + \frac{1}{2}\cos x &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+e^t + \sin x &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int (e^t + \sin x) dx = e^tx - \cos x + T(t)
+\end{align*}
+
+Thus, $\partial_t f = e^tx + T'(t)$. Using the first equation, we have
+\begin{align*}
+&e^tx + \frac{1}{2}\cos x = e^tx + T'(t) + \frac{1}{2}\cos x\\
+\implies &T'(t) = -\frac{1}{2}
+\end{align*}
+
+This implies that $T'(t) = 0$. As a result, $T(t) = c$. Hence,
+\begin{align*}
+f(t,x) = e^tx - \cos x + c
+\end{align*}
+
+Since $X_0 = 0$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) &= e^0(W_0) - \cos(W_0) + c\\
+&= 1(0) - 1 + c\\
+&= -1 + c = 0
+\end{align*}
+
+Thus, $c = 1$. The solution is then,
+\begin{align*}
+X_t = e^t(W_t) - \cos(W_t) + 1
+\end{align*} 
+
+\item We have $a(t,x) = e^x(1 + \frac{t}{2})$ and $b(t,x) = te^x$\\
+
+We will first verify the closeness condition:
+\begin{align*}
+\partial_x a = e^x(1 + \frac{t}{2})
+\end{align*}
+
+and,
+\begin{align*}
+\partial_t b + \frac{1}{2} \partial_x^2 b &= e^x + \frac{1}{2}te^x\\
+&= e^x(1 + \frac{t}{2})
+\end{align*}
+
+Thus, we have $\partial_x a = \partial_t b + \frac{1}{2} \partial_x^2 b$ and the closeness condition is satisfied.\\
+
+So the associated system is,
+\begin{align*}
+e^x(1 + \frac{t}{2}) &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+te^x &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int (te^x) dx = te^x + T(t)
+\end{align*}
+
+Thus, $\partial_t f = e^x + T'(t)$. Using the first equation, we have
+\begin{align*}
+&e^x(1 + \frac{t}{2}) = e^x + T'(t) + \frac{1}{2}te^x\\
+\implies &e^x(1 + \frac{t}{2}) = e^x(1 + \frac{t}{2}) + T'(t)\\
+\implies &T'(t) = 0
+\end{align*}
+
+This implies that $T'(t) = 0$. As a result, $T(t) = c$. Hence,
+\begin{align*}
+f(t,x) = te^x + c
+\end{align*}
+
+Since $X_0 = 2$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) &= 0e^{W_0} + c\\
+&= 0(1) + c\\
+&= c = 2
+\end{align*}
+
+Thus, $c = 2$. The solution is then,
+\begin{align*}
+X_t = te^{W_t} + 2
+\end{align*}
 
 \end{enumerate}
 
@@ -1053,5 +1241,105 @@ X_t = e^{t/2}(\sin W_t) + \frac{t^2}{2} + 1
 
 \begin{problem}{31}
 \end{problem}
+
+\begin{enumerate}[\alph*)]
+
+\item We have $dX_t = \alpha X_t dW_t$ with $\alpha$ a constant. The integrating factor is given by,
+\begin{align*}
+\rho_t &= e^{-\int_0^t g(s) dW_s + \frac{1}{2}\int_0^t g^2(s) ds}\\
+&= e^{-\int_0^t \alpha dW_s + \frac{1}{2}\int_0^t \alpha^2 ds}\\
+&= e^{\frac{1}{2} \alpha^2t - \alpha W_t}
+\end{align*}
+
+By Ito's formula, we have that,
+\begin{align*}
+d\rho_t = \rho_t(\alpha^2 dt - \alpha dW_t)
+\end{align*}
+
+Using $dt^2 = dt dW_t = 0$ and $(dW_t)^2 = dt$, we obtain,
+\begin{align*}
+dX_td\rho_t &= \alpha X_t dW_t[\rho_t(\alpha^2 dt - \alpha dW_t)]\\
+&= \alpha X_t dW_t[\rho_t \alpha^2 dt - \rho_t \alpha dW_t]\\
+&= \alpha X_t [\rho_t \alpha^2 dW_t dt - \rho_t \alpha (dW_t)^2]\\
+&= \alpha X_t [-\rho_t \alpha dt]\\
+&= -\alpha^2 \rho_t X_t dt
+\end{align*}
+
+Multiplying by $\rho_t$, the initial equation becomes,
+\begin{align*}
+\rho_tdX_t - \alpha\rho_tX_tdW_t = 0
+\end{align*}
+
+and adding and subtracting $\alpha^2\rho_tX_tdt$ from the left side yields,
+\begin{align*}
+\rho_tdX_t - \alpha\rho_tX_tdW_t + \alpha^2\rho_tX_tdt - \alpha^2\rho_tX_tdt = 0
+\end{align*}
+
+This can be written as,
+\begin{align*}
+\rho_tdX_t + X_td\rho_t + d\rho_t dX_t = 0
+\end{align*}
+
+which, by virtue of the product rule, becomes
+\begin{align*}
+d(\rho_tX_t) = 0
+\end{align*}
+
+Integrating yields,
+\begin{align*}
+\rho_tX_t = \rho_0X_0 + \int_0^t 0 ds &= \rho_0X_0\\
+&= (e^{\frac{1}{2} \alpha^2(0) - \alpha W_0})X_0\\
+&= (e^0)X_0 = X_0
+\end{align*}
+
+And hence the solution is,
+\begin{align*}
+X_t &= \frac{X_0}{\rho_t}\\
+&= \frac{X_0}{e^{\frac{1}{2} \alpha^2t - \alpha W_t}}
+\end{align*}
+
+\item We have $dX_t = X_t dt + \alpha X_t dW_t$ with $\alpha$ a constant. The integrating factor is given by,
+\begin{align*}
+\rho_t &= e^{-\int_0^t g(s) dW_s + \frac{1}{2}\int_0^t g^2(s) ds}\\
+&= e^{-\int_0^t \alpha dW_s + \frac{1}{2}\int_0^t \alpha^2 ds}\\
+&= e^{\frac{1}{2} \alpha^2t - \alpha W_t}
+\end{align*}
+
+By Ito's formula, we have that,
+\begin{align*}
+d\rho_t = \rho_t(\alpha^2 dt - \alpha dW_t)
+\end{align*}
+
+Using $dt^2 = dt dW_t = 0$ and $(dW_t)^2 = dt$, we obtain,
+\begin{align*}
+dX_td\rho_t &= [X_tdt + \alpha X_t dW_t][\rho_t(\alpha^2 dt - \alpha dW_t)]\\
+&= [X_tdt + \alpha X_t dW_t][\rho_t \alpha^2 dt - \rho_t \alpha dW_t]\\
+&=  \rho_t X_t \alpha^2 (dt)^2 - \rho_t X_t \alpha dt dW_t + \rho_t X_t \alpha^3 dt dW_t - \rho_t X_t \alpha^2 (dW_t)^2\\
+&= - \alpha^2 \rho_t X_t dt
+\end{align*}
+
+Multiplying by $\rho_t$, the initial equation becomes,
+\begin{align*}
+\rho_tdX_t - \alpha\rho_tX_tdW_t = X_t dt
+\end{align*}
+
+and adding and subtracting $\alpha^2\rho_tX_tdt$ from the left side yields,
+\begin{align*}
+\rho_tdX_t - \alpha\rho_tX_tdW_t + \alpha^2\rho_tX_tdt - \alpha^2\rho_tX_tdt = \rho_tX_t dt
+\end{align*}
+
+which, by virtue of the product rule, becomes
+\begin{align*}
+d(\rho_tX_t) = \rho_t X_t dt
+\end{align*}
+
+So, with $Y_t = \rho_tX_t$, we have
+\begin{align*}
+d(Y_t) = Y_t dt
+\end{align*}
+
+\item
+
+\end{enumerate}
 
 \end{document}
