@@ -7,6 +7,8 @@
 \usepackage{fixltx2e}
 \usepackage[shortlabels]{enumitem}
 \usepackage{mathrsfs}
+\allowdisplaybreaks
+
  
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
@@ -38,7 +40,7 @@
 
 \maketitle
 
-\textbf{NOTE: Still need to complete Problems 2, 7, 8, 15}
+\textbf{NOTE: Still need to complete Problems 2, 7, 8, 15, 17, 18, 22, 23c}
 
 \begin{problem}{1}
 \end{problem}
@@ -542,17 +544,8 @@ Thus, if $Y_t = \int_0^T f(t) dW_t$, then $Y_t \sim N(0, \int_0^T f(t)^2)$.
 \begin{problem}{15}
 \end{problem}
 
-Let $Z_t = \int_0^t W_s ds$. We will use integration by parts to solve this integral.\\
+Let $Z_t = \int_0^t W_s ds$.\\
 
-Let $u = W_s$ and $dv = ds$. This implies that $du = dW_s$ and $v = t-s$. Then using the formula,
-\begin{align*}
-\int udv = uv - \int v du
-\end{align*}
-
-we get,
-\begin{align*}
-\int_0^t W_s ds = W_s(t-s) - \int (t-s) dW_s
-\end{align*}
 FINISH THIS LATER.
 
 \begin{problem}{16}
@@ -575,6 +568,490 @@ So, in order for the variance to equal 1, we require,
 \end{align*}
 
 \begin{problem}{17}
+\end{problem}
+
+FINISH THIS LATER.
+
+\begin{problem}{18}
+\end{problem}
+
+FINISH THIS LATER.
+
+\begin{problem}{19}
+\end{problem}
+
+Ito's formula states that, if $X_t$ is a stochastic process satisfying $dX_t = b_tdt + \sigma_tdW_t$ with $b_t$ and $\sigma_t$ measurable, and if $F_t = f(X_t)$ with $f$ twice continuously differentiable, we have
+\begin{align*}
+dF_t = [b_tf'(X_t) + \frac{\sigma^2_t}{2} f''(X_t)]dt + \sigma_tf'(X_t)dW_t
+\end{align*}
+
+\begin{enumerate}[\alph*)]
+\item In the case that $X_t = W_t$, Corollary 6.2.3, we have the following when we let $F_t = f(W_t)$,
+\begin{align*}
+dF_t = \frac{1}{2} f''(W_t)dt + f'(W_t)dW_t
+\end{align*}
+
+We will apply this formula to the increment below.\\
+
+We have $d(W_te^{W_t})$, so let $f(x) = xe^x$. Then $f'(x) = xe^x + e^x$ and $f''(x) = xe^x + e^x + e^x$. Let $F_t = f(W_t)$ and we have,
+\begin{align*}
+dF_t &= \frac{1}{2} (W_te^{W_t})'' dt + (W_te^{W_t})' dW_t\\
+&= \frac{1}{2} [W_te^{W_t} + e^{W_t} + e^{W_t}] dt + [W_te^{W_t} + e^{W_t}] dW_t\\
+&= (\frac{1}{2} W_te^{W_t} + e^{W_t}) dt + e^{W_t}(W_t + 1) dW_t\\
+&= e^{W_t} (\frac{1}{2}W_t + 1) dt + e^{W_t}(W_t + 1) dW_t
+\end{align*}
+
+\item We have $d(e^{t+W_t^2})$, so let $X_t = t + W_t^2$. Then $dX_t = dt + (2W_tdW_t+dt) = 2dt + 2W_t dW_t$\\
+
+Thus, we have that $b_t = 2$ and $\sigma_t = 2W_t$ satisfying the processes from Ito's lemma. Letting $f(x) = e^x$, we have $f'(x) = f''(x) = e^x$. Now let $F_t = f(X_t)$ and applying Ito's formula yields,
+\begin{align*}
+dF_t &= [2f'(X_t) + \frac{4W_t^2}{2}f''(X_t)]dt + 2W_t f'(X_t)dW_t\\
+&= [2e^{t + W_t^2} + (2W_t^2)e^{t + W_t^2}]dt + 2W_t e^{t + W_t^2} dW_t\\
+&= 2e^{t+W_t^2}[1 + W_t^2] dt + 2W_te^{t+W_t^2}dW_tn
+\end{align*}
+
+\item We have $d\left(\frac{1}{t^{\alpha}} \int_0^t e^{W_s} d_s\right)$. Then,
+\begin{align*}
+d\left(\frac{1}{t^{\alpha}} \int_0^t e^{W_s} d_s\right) &= \left(\frac{1}{t^\alpha}\right)' \int_0^t e^{W_s} d_s + \frac{1}{t^\alpha} \left(\int_0^t e^{W_s} d_s\right)'\\
+&= \frac{-\alpha}{t^{\alpha+1}} dt \int_0^t e^{W_s} d_s + \frac{1}{t^\alpha} e^{W_t} dt\\
+&= \frac{1}{t^{\alpha}} \left[e^{W_t} - \frac{\alpha}{t} \int_0^t e^{W_s} d_s\right]dt
+\end{align*}
+
+\end{enumerate}
+
+\begin{problem}{20}
+\end{problem}
+
+\begin{enumerate}[\alph*)]
+\item We are given $d(t\cos(W_t))$. Then we have that $f(t,x) = t\cos(x)$ and $X_t = W_t$. In addition, we have that $\partial_t f = \cos(x)$, $\partial_x f = -t\sin(x)$, and $\partial^2_x f = -t\cos(x)$.\\
+
+Applying these identities to equation 6.2.7 yields,
+\begin{align*}
+df(t, X_t) = d(t\cos(W_t)) &= \cos(W_t)dt - t\sin(W_t)dW_t - \frac{1}{2}t\cos(W_t)(dW_t)^2\\
+&= \cos(W_t)dt - t\sin(W_t)dW_t - \frac{1}{2}t\cos(W_t)dt\\
+&= \cos(W_t)\left[1 - \frac{1}{2}t\right]dt - t\sin(W_t)dW_t
+\end{align*}
+
+\item We are given $d(e^tW_t^2)$. Then we have that $f(t,x) = e^tx^2$ and $X_t = W_t$. In addition, we have that $\partial_t f = e^tx^2$, $\partial_x f = 2e^tx$, and $\partial^2_x f = 2e^t$.\\
+
+Applying these identities to equation 6.2.7 yields,
+\begin{align*}
+df(t, X_t) = d(e^tW_t^2) &= e^tW_t^2dt + 2e^tW_tdW_t + \frac{1}{2}(2e^t)(dW_t)^2\\
+&= e^tW_t^2dt + 2e^tW_tdW_t + e^t dt\\
+&= e^t\left[W_t^2 + 1\right]dt + 2e^tW_tdW_t
+\end{align*}
+
+\item We are given $d(\sin(t)W_t^2)$. Then we have that $f(t,x) = \sin(t)x^2$ and $X_t = W_t$. In addition, we have that $\partial_t f = \cos(t)x^2$, $\partial_x f = 2\sin(t)x$, and $\partial^2_x f = 2\sin(t)$.\\
+
+Applying these identities to equation 6.2.7 yields,
+\begin{align*}
+df(t, X_t) = d(\sin(t)W_t^2) &= \cos(t)W_t^2dt + 2\sin(t)W_tdW_t + \frac{1}{2}(2\sin(t))(dW_t)^2\\
+&= \cos(t)W_t^2dt + 2\sin(t)W_tdW_t + \sin(t)dt\\
+&= \left[\cos(t)W_t^2 + \sin(t)\right]dt + 2\sin(t)W_tdW_t
+\end{align*}
+\end{enumerate}
+
+\begin{problem}{21}
+\end{problem}
+
+From Problem 8, we know that for any two independent random variables $X$ and $Y$, we have $E(XY) = E(X) E(Y)$ and $\text{Var}(XY) = \text{Var}(X)\text{Var}(Y) + \text{Var}(X)\left(E(Y)\right)^2 + \text{Var}(Y)\left(E(X)\right)^2$.\\
+
+Now consider two independent Brownian motions $W_t^{(1)}$ and $W_t^{(2)}$. Furthermore, consider the differences for each Brownian motion: $W_{t_1+h}^{(1)} - W_{t_1}^{(1)}$ and $W_{t_2+g}^{(2} - W_{t_2}^{(2)}$ with $h > 0$ and $g > 0$.\\
+
+We know that these differences both have mean 0 and variances $|(t+h) - t| = |h| = h$ and $|(t+g) - t| = |g| = g$, respectively.\\
+
+Now we will take the limit of each difference as $h \to 0^+$ and $g \to 0^+$. In this case, we get that,
+\begin{align*}
+W_{t_1+h}^{(1)} - W_{t_1}^{(1)} \to dW_t^{(1)}
+\end{align*}
+
+as $h \to 0$ and,
+\begin{align*}
+\text{Var}(W_{t_1+h}^{(1)} - W_{t-1}^{(1)}) = h \to dt_1
+\end{align*}
+
+as $h \to 0$.\\
+
+The same holds for the differences of $W_t^{(2)}$.\\
+
+Thus, $dW_t^{(1)} \sim N(0, dt_1)$ and $dW_t^{(2}) \sim N(0, dt_2)$. From Problem 8, we have that,
+\begin{align*}
+E(dW_t^{(1)} \cdot dW_t^{(2)}) = E(dW_t^{(1)}) \cdot E(dW_t^{(2)}) = 0
+\end{align*}
+
+and,
+\begin{align*}
+\text{Var}(dW_t^{(1)} \cdot dW_t^{(2)}) &= \text{Var}(dW_t^{(1)})\text{Var}(dW_t^{(2)}) + \text{Var}(dW_t^{(1)})\left(E(dW_t^{(2)})\right)^2 + \text{Var}(dW_t^{(2)})\left(E(dW_t^{(1)})\right)^2\\
+&= dt_1dt_2 + dt_1(0)^2 + dt_2(0)^2\\
+&= dt_1dt_2
+\end{align*}
+
+Since $dt_1dt_2$ can be made arbitrarily close to $0$, we can say that $\text{Var}(dW_t^{(1)} \cdot dW_t^{(2)})$.\\
+
+Since the mean of $dW_t^{(1)} \cdot dW_t^{(2)}$ is a constant (0 in this case) and the variance approaches 0, we can say that the mean-squared limit of this quantity is 0. Thus, we have that,
+\begin{align*}
+dW_t^{(1)} \cdot dW_t^{(2)} = 0
+\end{align*}
+
+\begin{problem}{22}
+\end{problem}
+
+FINISH THIS LATER.
+
+\begin{problem}{23}
+\end{problem}
+
+\begin{enumerate}[\alph*)]
+
+\item We will begin by showing that the derivative of the answer is equal to the integrand.\\
+
+Let $f(t,x) = 1 - e^{t/2}\cos(x)$. Then $\partial_t f = -\frac{1}{2}e^{t/2}\cos(x)$, $\partial_x f = e^{t/2}\sin(x)$, and $\partial^2_x f = e^{t/2}\cos(x)$.\\
+
+Applying these identities to equation 6.2.7 yields,
+\begin{align*}
+df(t, X_t) = d(1 - e^{t/2}\cos(W_t)) &= -\frac{1}{2}e^{t/2}\cos(W_t)dt + e^{t/2}\sin(W_t)dW_t + \frac{1}{2}e^{t/2}\cos(W_t)(dW_t)^2\\
+&= -\frac{1}{2}e^{t/2}\cos(W_t)dt + e^{t/2}\sin(W_t)dW_t + \frac{1}{2}e^{t/2}\cos(W_t)dt\\
+&= \frac{1}{2}\left[e^{t/2}\cos(W_t) - e^{t/2}\cos(W_t)\right]dt + e^{t/2}\sin(W_t)dW_t\\
+&= \frac{1}{2}[0]dt + e^{t/2}\sin(W_t)dW_t\\
+&= e^{t/2}\sin(W_t)dW_t
+\end{align*}
+
+So from the problem statement and the above derivation we have that,
+\begin{align*}
+\int_0^t e^{s/2}\sin(W_s)dW_s &= \int_0^t df(s, W_s)\\
+&= f(t, W_t)\\
+&= 1 - e^{t/2}\cos(W_t)
+\end{align*}
+
+\item Let us take the derivative of the integrated function. By the sum rule of the derivative, we have,
+\begin{align*}
+d f(W_t) = d\left(\sin(W_t) + \frac{1}{2} \int_0^T \sin(W_t) dt\right) &= d\left[\sin(W_t)\right] + \frac{1}{2} \left[ d\left(\int_0^T \sin(W_t)dt\right) \right]\\
+\end{align*}
+
+A direct result of Corollary 6.2.3 is that $d(\sin(W_t)) = \cos(W_t)dW_t - \frac{1}{2}\sin(W_t)dt$. In addition we know that the derivative of the integral over the whole domain (in this case 0 to T) is precisely the integrand. Thus,
+\begin{align*}
+d f(W_t) = d\left[\sin(W_t)\right] + \frac{1}{2} \left[ d\left(\int_0^T \sin(W_t)dt\right) \right] &= \cos(W_t)dW_t - \frac{1}{2}\sin(W_t)dt + \frac{1}{2}\sin(W_t)dt\\
+&= \cos(W_t)dW_t
+\end{align*}
+
+So we have,
+\begin{align*}
+&\int_{0}^T df(W_t) dW_t = f(W_t)\\
+\implies &\int_0^T \cos(W_t)dW_t = \sin(W_t) + \frac{1}{2} \int_0^T \sin(W_t) dt
+\end{align*}
+
+\item
+
+\end{enumerate}
+
+\begin{problem}{24}
+\end{problem}
+
+By Proposition 8.2.1, we know that if both the drift and volatility of a stochastic differential equation are just functions of time $t$, then the solution is Gaussian distributed with the mean $X_0 + \int_0^t a(s) ds$ and variance $\int_0^t b^2(s) ds$.\\
+
+In the given stochastic differential equation, we see that
+\begin{align*}
+a(t) = \frac{t}{1+t^2}
+\end{align*}
+
+and,
+
+\begin{align*}
+b(t) = t^{3/2}
+\end{align*}
+
+Thus, we can apply Proposition 8.2.1 in this case. As a result, the mean is given by,
+\begin{align*}
+X_0 + \int_0^t a(s) ds &= 1 + \int_0^t \frac{s}{1 + s^2} ds\\
+&= 1 + \frac{1}{2}\ln(t^2+1)
+\end{align*}
+
+and the variance is given by,
+\begin{align*}
+\int_0^t b^2(s) ds &= \int_0^t \left(s^{3/2}\right)^2 ds\\
+&= \int_0^t s^3 ds\\
+&= \frac{t^4}{4}
+\end{align*}
+
+Thus, the distribution of the solution is given by $X_t \sim N(1 + \frac{1}{2}\ln(t^2+1), \frac{t^4}{4})$.\\
+
+Moreover, the formula for the solution $X_t$, given by 8.1.2, is
+\begin{align*}
+X_t &= X_0 + \int_0^t a(s) ds + \int_0^t b(s) dW_s\\
+&= 1 + \int_0^t \frac{s}{1 + s^2} ds + \int_0^t t^{3/2} dW_s\\
+&= 1 + \frac{1}{2}\ln(t^2+1) + \int_0^t t^{3/2} dW_s
+\end{align*}
+
+\begin{problem}{25}
+\end{problem}
+
+\begin{enumerate}[\alph*)]
+
+\item We are given $dX_t = \cos t dt - \sin t dW_t$, $X_0 = 1$\\
+
+As a result, we have $a(t) = \cos t$ and $b(t) = - \sin t$ and can use Proposition 8.2.1 as above.\\
+
+Hence, the mean is given by,
+\begin{align*}
+X_0 + \int_0^t a(s) ds &= 1 + \int_0^t \cos(s) ds\\
+&= 1 + [\sin(t) - \sin(0)] = 1 + \sin(t)
+\end{align*}
+
+and the variance is given by,
+\begin{align*}
+\int_0^t b^2(s) ds &= \int_0^t \left(-\sin s\right)^2 ds\\
+&= \int_0^t \sin^2(s) ds\\
+&= \frac{t}{2} - \frac{1}{4}\sin(2t)\\
+&= \frac{1}{2}\left[t - \sin(t)\cos(t)\right]
+\end{align*}
+
+Thus, $X_t \sim N\left(1 + \sin(t), \frac{1}{2}\left[t - \sin(t)\cos(t)\right]\right)$ and the solution is given by,
+\begin{align*}
+X_t &= X_0 + \int_0^t a(s) ds + \int_0^t b(s) \, dW_s\\
+&= 1 + \int_0^t \cos(s) ds + \int_0^t -\sin s \, dW_s\\
+&= 1 + \sin(t) - \int_0^t \sin s \, dW_s
+\end{align*}
+
+\item We are given $dX_t = e^t dt + \sqrt{t} dW_t$, $X_0 = 0$\\
+
+As a result, we have $a(t) = e^{t}$ and $b(t) = \sqrt{t}$ and can use Proposition 8.2.1 as above.\\
+
+Hence, the mean is given by,
+\begin{align*}
+X_0 + \int_0^t a(s) ds &= 0 + \int_0^t e^s ds\\
+&= e^t - e^0\\
+&= e^t - 1
+\end{align*}
+
+and the variance is given by,
+\begin{align*}
+\int_0^t b^2(s) ds &= \int_0^t \left(\sqrt{s}\right)^2 ds\\
+&= \int_0^t s ds\\
+&= \frac{t^2}{2}
+\end{align*}
+
+Thus, $X_t \sim N\left(e^t - 1, \frac{t^2}{2}\right)$ and the solution is given by,
+\begin{align*}
+X_t &= X_0 + \int_0^t a(s) ds + \int_0^t b(s) \, dW_s\\
+&= 0 + \int_0^t e^s ds + \int_0^t \sqrt{s} \, dW_s\\
+&= e^t - 1 + \int_0^t \sqrt{s} \, dW_s
+\end{align*}
+\end{enumerate}
+
+\begin{problem}{26}
+\end{problem}
+
+We have,
+\begin{align*}
+a(t,x) = 2tx^3 + 3t^2(1+x)
+\end{align*}
+
+and
+\begin{align*}
+b(t,x) = 3t^2x^2 + 1
+\end{align*}
+
+So the associated system is,
+\begin{align*}
+2tx^3 + 3t^2(1+x) &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+3t^2x^2 + 1 &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int (3t^2x^2 + 1) dx = t^2x^3 + x + T(t)
+\end{align*}
+
+Thus, $\partial_t f = 2tx^3 + T'(t)$. Using the first equation, we have
+\begin{align*}
+2tx^3 + 3t^2(1+x) = 2tx^3 + T'(t) + 3t^2x
+\end{align*}
+
+This implies that $T'(t) = 3t^2$. As a result, $T(t) = t^3 + c$. Hence,
+\begin{align*}
+f(t,x) = t^2x^3 + x + t^3 + c
+\end{align*}
+
+And we have,
+\begin{align*}
+X_t = f(t, W_t) = t^2(W_t)^3 + W_t + t^3 + c
+\end{align*}
+
+Since $X_0 = 0$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) = 0^2(W_0)^3 + W_0 + 0^3 + c = 0
+\end{align*}
+
+Thus, $c = 0$. The solution is then,
+\begin{align*}
+X_t = t^2(W_t)^3 + W_t + t^3
+\end{align*}
+
+\begin{problem}{27}
+\end{problem}
+
+\begin{enumerate}[\alph*)]
+
+\item We have $a(t,x) = e^t$ and $b(t,x) = x^2 - t$.\\
+
+So the associated system is,
+\begin{align*}
+e^t &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+x^2 - t &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int (x^2 - t) dx = \frac{x^3}{3} - tx + T(t)
+\end{align*}
+
+Thus, $\partial_t f = -x + T'(t)$. Using the first equation, we have
+\begin{align*}
+e^t = -x + T'(t) + x = T'(t)
+\end{align*}
+
+This implies that $T'(t) = e^t$. As a result, $T(t) = e^t + c$. Hence,
+\begin{align*}
+f(t,x) = \frac{x^3}{3} - tx + e^t + c
+\end{align*}
+
+Since $X_0 = 1$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) = \frac{W_0^3}{3} - 0W_0 + e^0 + c = 1 + c = 1
+\end{align*}
+
+Thus, $c = 0$. The solution is then,
+\begin{align*}
+X_t = \frac{W_t^3}{3} - t(W_t) + e^t
+\end{align*}
+
+\item We have $a(t,x) = \sin t$ and $b(t,x) = x^2 - t$.\\
+
+So the associated system is,
+\begin{align*}
+\sin t &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+x^2 - t &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int (x^2 - t) dx = \frac{x^3}{3} - tx + T(t)
+\end{align*}
+
+Thus, $\partial_t f = -x + T'(t)$. Using the first equation, we have
+\begin{align*}
+\sin t = -x + T'(t) + x = T'(t)
+\end{align*}
+
+This implies that $T'(t) = \sin t$. As a result, $T(t) = -\cos t + c$. Hence,
+\begin{align*}
+f(t,x) = \frac{x^3}{3} - tx - \cos t + c
+\end{align*}
+
+Since $X_0 = -1$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) = \frac{W_0^3}{3} - 0W_0 - \cos(0) + c = -1 + c = -1
+\end{align*}
+
+Thus, $c = 0$. The solution is then,
+\begin{align*}
+X_t = \frac{W_t^3}{3} - t(W_t) - \cos t
+\end{align*}
+
+\item We have $a(t,x) = t^2$ and $b(t,x) = e^{x-\frac{t}{2}}$\\
+
+So the associated system is,
+\begin{align*}
+t^2 &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+e^{x-\frac{t}{2}} &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int e^{x-\frac{t}{2}} dx = e^{x-\frac{t}{2}} + T(t)
+\end{align*}
+
+Thus, $\partial_t f = -\frac{1}{2} e^{x-\frac{t}{2}} + T'(t)$. Using the first equation, we have
+\begin{align*}
+t^2 = -\frac{1}{2}e^{x-\frac{t}{2}} + T'(t) + \frac{1}{2}e^{x-\frac{t}{2}} = T'(t)
+\end{align*}
+
+This implies that $T'(t) = t^2$. As a result, $T(t) = \frac{t^3}{3} + c$. Hence,
+\begin{align*}
+f(t,x) = e^{x-\frac{t}{2}} + \frac{t^3}{3} + c
+\end{align*}
+
+Since $X_0 = 0$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) &= e^{W_0 - \frac{0}{2}} + \frac{0^3}{3} + c\\
+&= e^0 + 0 + c\\
+&= 1 + c = 0
+\end{align*}
+
+Thus, $c = -1$. The solution is then,
+\begin{align*}
+X_t = e^{W_t-\frac{t}{2}} + \frac{t^3}{3} - 1
+\end{align*}
+
+\item We have $a(t,x) = t$ and $b(t,x) = e^{t/2}(\cos x)$
+
+So the associated system is,
+\begin{align*}
+t &= \partial_t f(t,x) + \frac{1}{2} \partial_x^2 f(t,x)\\
+e^{t/2}(\cos x) &= \partial_x f(t,x)
+\end{align*}
+
+Integrating partially in x in the second equation yields,
+\begin{align*}
+f(t,x) = \int e^{t/2}(\cos x) dx = e^{t/2}(\sin x) + T(t)
+\end{align*}
+
+Thus, $\partial_t f = \frac{1}{2} e^{t/2}(\sin x) + T'(t)$. Using the first equation, we have
+\begin{align*}
+t = \frac{1}{2}e^{t/2}(\sin x) + T'(t) - \frac{1}{2}e^{t/2}(\sin x) = T'(t)
+\end{align*}
+
+This implies that $T'(t) = t$. As a result, $T(t) = \frac{t^2}{2} + c$. Hence,
+\begin{align*}
+f(t,x) = e^{t/2}(\sin x) + \frac{t^2}{2} + c
+\end{align*}
+
+Since $X_0 = 1$ is given, we have,
+\begin{align*}
+X_0 = f(0, W_0) &= e^{0/2}(\sin W_0) + \frac{0^2}{2} + c\\
+&= e^0(\sin 0) + 0 + c\\
+&= 0(0) + 0 + c = c = 1
+\end{align*}
+
+Thus, $c = 1$. The solution is then,
+\begin{align*}
+X_t = e^{t/2}(\sin W_t) + \frac{t^2}{2} + 1
+\end{align*}
+
+\end{enumerate}
+
+\begin{problem}{28}
+\end{problem}
+
+\begin{enumerate}[\alph*)]
+
+\item
+
+\item
+
+\item
+
+\item
+
+\end{enumerate}
+
+\begin{problem}{29}
+\end{problem}
+
+\begin{problem}{30}
+\end{problem}
+
+\begin{problem}{31}
 \end{problem}
 
 \end{document}

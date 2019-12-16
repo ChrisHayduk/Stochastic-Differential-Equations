@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  15 DEC 2019 00:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.19)  15 DEC 2019 22:27
 entering extended mode
 **./final_project.tex
 (final_project.tex
@@ -249,19 +249,19 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 ) (final_project.aux)
 \openout1 = `final_project.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 34.
 
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -393,160 +393,296 @@ G,.JBIG2,.JB2,.eps]
 \Gin@req@height=\dimen132
 \Gin@req@width=\dimen133
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 41.
 
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 39.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 41.
 
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 39.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 41.
 
 
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 39.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 41.
 
 
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 39.
+(Font)              <14.4> on input line 41.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 39.
+(Font)              <10> on input line 41.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 39.
-LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+(Font)              <7> on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 39.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 41.
 ("C:\Users\chris\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 46.
+(Font)              <12> on input line 48.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 46.
+(Font)              <8> on input line 48.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 46.
+(Font)              <6> on input line 48.
 
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 90.
+(amsmath)                 on input line 92.
 
 
-Overfull \hbox (14.67444pt too wide) detected at line 90
+Overfull \hbox (14.67444pt too wide) detected at line 92
 []
  []
 
 [1
 
 {C:/Users/chris/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-
-Overfull \hbox (11.47542pt too wide) detected at line 265
+Overfull \hbox (11.47542pt too wide) detected at line 267
 []
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 274--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
-[6] [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
-
+Overfull \hbox (7.50124pt too wide) detected at line 431
+[]
  []
 
 [9]
-Overfull \hbox (7.50124pt too wide) detected at line 429
+Overfull \hbox (32.52534pt too wide) detected at line 447
 []
  []
 
 
-Overfull \hbox (32.52534pt too wide) detected at line 445
+Overfull \hbox (66.90105pt too wide) detected at line 467
 []
  []
 
-[10]
-Overfull \hbox (66.90105pt too wide) detected at line 465
+[10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
+
+ []
+
+
+Overfull \hbox (15.61287pt too wide) in paragraph at lines 657--658
+\T1/lmr/m/n/12 have $\OML/lmm/m/it/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 XY\OT1
+/lmr/m/n/12 ) = \OML/lmm/m/it/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 X\OT1/lmr/m
+/n/12 )\OML/lmm/m/it/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 Y\OT1/lmr/m/n/12 )$ 
+\T1/lmr/m/n/12 and $[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 XY\OT1/lmr/m/n/12 ) = [
+](\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 Y\OT1/lmr/m/n/12 ) + [
+](\OML/lmm/m/it/12 X\OT1/lmr/m/n/12 ) [][] + [](\OML/lmm/m/it/12 Y\OT1/lmr/m/n/
+12 ) [][]$\T1/lmr/m/n/12 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 659--660
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 673--674
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 675--676
+
+ []
+
+
+Overfull \hbox (36.72322pt too wide) detected at line 687
 []
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 706--707
 
  []
 
-[12] [13] (final_project.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
+
+ []
+
+
+Overfull \hbox (25.74867pt too wide) detected at line 717
+[]
+ []
+
+[15]
+Overfull \hbox (14.112pt too wide) detected at line 735
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--751
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 776--777
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 790--791
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--793
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 815--816
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 817--818
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 895--896
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 928--929
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
+
+ []
+
+[21] [22] (final_project.aux) ) 
 Here is how much of TeX's memory you used:
- 4137 strings out of 492895
- 61381 string characters out of 3123735
+ 4140 strings out of 492895
+ 61455 string characters out of 3123735
  141162 words of memory out of 3000000
- 7952 multiletter control sequences out of 15000+200000
+ 7955 multiletter control sequences out of 15000+200000
  47992 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,32p,413b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,16n,32p,413b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/chris/AppData/Local/Programs/MiKTeX 2.
 9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/chris/AppData/Local/Programs/MiKTeX 2.
 9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/chris/AppData/Local/Programs/MiKTe
@@ -567,9 +703,9 @@ Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><
 C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pf
 b><C:/Users/chris/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on final_project.pdf (13 pages, 214443 bytes).
+Output written on final_project.pdf (22 pages, 243404 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
